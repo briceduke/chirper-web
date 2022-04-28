@@ -1,4 +1,24 @@
 import { ChakraProvider, theme } from '@chakra-ui/react';
-import * as React from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router';
 
-export const App = () => <ChakraProvider theme={theme}></ChakraProvider>;
+import { Routes } from './routes/Routes';
+
+export const App = () => {
+	const user = false;
+
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		if (user) {
+			// set the auth state from user query
+			navigate("/home");
+		}
+	}, [user, navigate]);
+
+	return (
+		<ChakraProvider theme={theme}>
+			<Routes />
+		</ChakraProvider>
+	);
+};
