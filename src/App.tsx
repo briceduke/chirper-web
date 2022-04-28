@@ -1,4 +1,3 @@
-import { ChakraProvider, theme } from '@chakra-ui/react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
@@ -17,8 +16,6 @@ export const App = () => {
 	}, [user, navigate]);
 
 	return (
-		<ChakraProvider theme={theme}>
 			<Routes />
-		</ChakraProvider>
 	);
 };
